@@ -1,0 +1,12 @@
+#Complete the function so that it returns the url with anything after the anchor (#) removed.
+
+import re
+
+def remove_url_anchor(url):
+  # TODO: complete
+    return re.sub(r"#.*$", "", url)
+
+
+
+
+# remove_url_anchor('www.codewars.com#about')
