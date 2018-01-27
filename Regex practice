@@ -1,0 +1,69 @@
+Regex practice:
+
+Match all digits:
+We have to extract these numbers 12, 47, 48
+The integers numbers are also interesting: 189 2036 314
+"," is a separator, so please extract these numbers 125,789,1450 and also these 564,90456
+
+\d+
+
+
+
+\d, matches any digit character (0-9). Equivalent to [0-9].
++, matches 1 or more of the preceding token.
+
+================================================================================
+
+Match these types of digits:
+38:f8:b7:90:45:92
+00:21:87:79:9c:d9
+00:1a:e3:52:5d:8e
+
+
+\w+:\w+:\w+:\w+:\w+:\w+
+
+
+
+\w, matches any word character (alphanumeric & underscore). Only matches low-ascii characters (no accented or non-roman characters). Equivalent to [A-Za-z0-9_]
+
+================================================================================
+
+Match these types of text:
+          ftp://ftp7.br.FreeBSD.org/pub/FreeBSD/
+          ftp://ftp3.de.FreeBSD.org/pub/FreeBSD/
+          ftp://ftp.is.FreeBSD.org/pub/FreeBSD/
+          ftp://ftp4.jp.FreeBSD.org/pub/FreeBSD/
+          ftp://ftp.no.FreeBSD.org/pub/FreeBSD/
+
+
+
+ftp://\w+\.\w+[\w./]*/
+
+
+================================================================================
+
+Match:
+$\mu_{A_T}$
+$\sigma_{A_T}$
+$\rho_\text{filler}=\frac{\sum_{T \in \mathcal{T} A_T}}{A}$
+$P$
+$C_T = \sigma_R+\sigma_G+\sigma_B$
+
+
+
+
+\$(.*?)\$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
