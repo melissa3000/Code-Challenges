@@ -56,8 +56,35 @@ $C_T = \sigma_R+\sigma_G+\sigma_B$
 
 
 
+================================================================================
+
+Match:
+74.125.189.23
+209.58.83.178
+209.58.83.178
+95.172.69.18
 
 
+\d+\.\d+\.\d+\.\d+
+
+
+================================================================================
+
+Match:
+href="javascript:openurl('/Xplore/accessinfo.jsp')"
+href='/xpl/RecentCon.jsp?punumber=10417'
+href="/xplorehelp/Help_start.html#Help_searchresults.html"
+href="http://search.epnet.com/login.asp?profile=web&amp;defaultdb=geh"
+
+
+
+\href=(["'])([\\|\/|\w+|\:])(.*?)(.*?)(["'])
+
+**fails on this one due to the inside quotes: href="javascript:openurl('/Xplore/accessinfo.jsp')"
+How do I fix?
+
+
+================================================================================
 
 
 
