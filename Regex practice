@@ -141,16 +141,25 @@ DeWilde, La'Ona
 
 
 
-[A-Z]\w+[-]?, [A-Za-z]+(['{\\"]+)?
+[A-Z][a-zA-Z]+[-]?, [A-Za-z]+(['{\\"\w}]+)?( [A-Za-z]+)?
+**Not perfect - it misses the first half of Arellano-Baeza, A
 
 
+================================================================================
+
+Match:
+<span class="editsection">[<a href="/w/index.php?title=Roma&amp;action=edit&amp;section=72" title="Modifica la sezione Galleria fotografica">modifica</a>]</span> <span class="mw-headline" id="Galleria_fotografica">Galleria fotografica</span>
+
+<a href="http://totaltech.it/?ref=libero&amp;id=VTOTECH_41785" onclick="return TSckSrv(this,'1052','Stories-1052','0-tit','http://aranzulla.tecnologia.virgilio.it/fax-on-line-41785.html','M')">Inviare e ricevere fax su Internet</a>
+
+<span class="expand_section"><a class="uri url" href="http://www.w3.org/blog/International/2011/12/09/w3c-workshop-call-for-participation-the-multilingual-web-%e2%80%93-the-way-ahead/">W3C Workshop, Call for Participation: The Multilingual Web &#x2013; TheWay Ahead</a></span>
+
+in 6 <strong><span style="color: rgb(153, 0, 0);">cd </span></strong>e <strong><span style="color: rgb(153, 0, 0);">live inedito</span></strong>
 
 
+*(all matched strings are between html tags)
 
-
-
-
-
+(?<=<h1>|<h2>|<h4>|<h3>|(<h3 \w+>))(.*?)(?=</h1>|</h2>|</h4>|</h3>)
 
 
 
