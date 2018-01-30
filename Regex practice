@@ -162,6 +162,10 @@ in 6 <strong><span style="color: rgb(153, 0, 0);">cd </span></strong>e <strong><
 (?<=<h1>|<h2>|<h4>|<h3>|(<h3 \w+>))(.*?)(?=</h1>|</h2>|</h4>|</h3>)
 
 
+================================================================================
+
+Match: first name in a numbered list in format last, first initial (varying # of initials)
 
 
+(?<=\d+\. )[A-Za-z]+, [A-Z].[A-Z]?[\.]?([A-Z]?[\.]?)
 
