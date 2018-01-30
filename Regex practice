@@ -86,6 +86,68 @@ How do I fix?
 
 ================================================================================
 
+Match:
+http://www.classmates.com/go/e/200988231/CC123101BT/CM00
+http://itcapps.corp.enron.com/srrs/auth/emailLink.asp?ID=000000000053239&Page=Approval
+http://graphics.classmates.com/graphics/sp
+http://zzz1.net/rd/rd.asp?ZXU=562&ZXD=1471085&UID=1471085
+http://isc.enron.com/site/doclibrary/user/
+http://ad.doubleclick.net/clk;3549492;6600300;c?http://www.sportingbetusa.com/english/casino/casinonew-fr.asp?isLogged=notlogged
+
+
+(http)://([\w_-]+(?:(?:\.[\w_-])+))([\w.,@?^=;%&:/~+#-]*[\w/])?
+
+================================================================================
+
+Match:
+<h3><span class="editsection">[<a href="/w/index.php?title=Roma&amp;action=edit&amp;section=9" title="Modifica la sezione Età moderna">modifica</a>]</span> <span class="mw-headline" id="Et.C3.A0_moderna">Età moderna</span></h3>
+<h3><span class="editsection">[<a href="/w/index.php?title=Roma&amp;action=edit&amp;section=68" title="Modifica la sezione Principali società sportive">modifica</a>]</span> <span class="mw-headline" id="Principali_societ.C3.A0_sportive">Principali società sportive</span></h3>
+
+<h1 class="title"> <img src="/2008/site/images/theme-web-semantics" alt="" />Semantic Web</h1>
+
+
+
+
+\<h\d(.)+
+
+
+
+
+================================================================================
+
+Match:
+(734) 647-7087
+734-764-9586
+734.936.9358
+800/862-7284
+734-764-0400
+
+
+\(?\d{3}[\) \.\/]?[ -\.]?\d{3}[ -\.]?\d{4}
+
+
+================================================================================
+
+Match:
+Diaz, Navarro David
+Gines, Rodriguez Noe
+Standefer, Michael
+Bay, Janet W
+GenTSCH, JoN R
+Glass, RI
+Arellano-Baeza, A
+Simader, G{\"u}nter
+DeWilde, La'Ona
+
+
+
+[A-Z]\w+[-]?, [A-Za-z]+(['{\\"]+)?
+
+
+
+
+
+
 
 
 
