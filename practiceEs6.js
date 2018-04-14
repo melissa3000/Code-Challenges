@@ -85,6 +85,93 @@ images.forEach(function(image) {
 //================================================================
 //=====================   Map   ==================================
 //================================================================
+// Often used with arrays of objects
+
+var numbers = [1, 2, 3];
+var doubledNumbers = [];
+
+for (var i = 0; i <numbers.length; i ++) {
+  doubledNumbers.push(numbers[i] * 2);
+}
+
+var doubled = numbers.map(function(number) {
+  return number * 2;
+});
+
+doubled;
+doubledNumbers;
+
+// map helper returns a new array
+
+//================================================================
+
+var cars = [
+  { model: 'Buick', price: 'CHEAP' },
+  { model: 'Camaro', price: 'expensive' }
+];
+
+var prices = cars.map(function(car) {
+  return car.price;
+});
+
+prices;
+
+//================================================================
+// Create a new array that contains the height of each property
+
+var images = [
+  { height: '34px', width: '39px' },
+  { height: '54px', width: '19px' },
+  { height: '83px', width: '75px' },
+];
+
+var heights;
+
+// Solution:
+var heights = images.map(function(image) {
+  return image.height;
+});
+
+//================================================================
+// create a new array that contains the distance/time value from each trip
+
+var trips = [
+  { distance: 34, time: 10 },
+  { distance: 90, time: 50 },
+  { distance: 59, time: 25 }
+];
+
+var speeds;
+
+// Solution:
+speeds = trips.map(function(trip) {
+  return trip.distance / trip.time;
+});
+
+//================================================================
+// Implement a 'pluck' function that accepts an array and string representing
+// a property name and return an array containing that property from each object
+
+var paints = [{color: 'red'}, {color:'blue'}, {color:'yellow'}];
+
+
+function pluck(array, property) {
+    var result = array.map(function(item){
+      return item[property];
+    });
+
+    return result
+}
+
+pluck(paints, 'color');
+
+
+//================================================================
+//=====================   Filter   ==============================
+//================================================================
+
+
+
 
 
 
