@@ -587,6 +587,61 @@ balancedParens("(((");
 
 //================================================================
 
+// Use reduce to find the sum of the distances traveled
+
+var trips = [{ distance: 34 }, { distance: 12 } , { distance: 1 }];
+
+var totalDistance = trips.reduce((sum, trip) => {
+  return sum + trip.distance;
+}, 0);
+
+
+//================================================================
+
+
+// Use reduce to create an object that tallies the number of sitting and
+// standing desks. The object returned should have the form '{sitting: 3, standing: 2}'.
+
+var desks = [
+  { type: 'sitting' },
+  { type: 'standing' },
+  { type: 'sitting' },
+  { type: 'sitting' },
+  { type: 'standing' }
+];
+
+var deskTypes = desks.reduce(function(previous, desk) {
+    if (desk.type === 'standing') { previous.standing ++; }
+    if (desk.type === 'sitting') { previous.sitting ++ ; }
+    return previous
+}, { sitting: 0, standing: 0 });
+
+//================================================================
+
+// Write a function called 'unique' that will remove all duplicate values
+// from an array.
+
+var numbers = [1, 1, 2, 3, 4, 4]; // return [1, 2, 3, 4]
+function unique(array) {
+  return array.reduce(function(previous, number) {
+    if (!previous.includes(number))
+      { previous.push(number); }
+    return previous;
+  }, []);
+}
+
+unique(numbers);
+
+//================================================================
+
+
+
+
+
+
+
+
+
 
 
 
