@@ -167,7 +167,7 @@ pluck(paints, 'color');
 
 
 //================================================================
-//=====================   Filter   ==============================
+//=====================   Filter   ===============================
 //================================================================
 
 
@@ -289,7 +289,7 @@ lessThanFifteen;
 //================================================================
 
 //================================================================
-//=====================   Find   ==============================
+//=====================   Find   =================================
 //================================================================
 
 
@@ -407,6 +407,195 @@ function findWhere(array, criteria) {
 findWhere(ladders, { 'height': 25 });
 
 //================================================================
+//================================================================
+//=====================   Every & Some  ==========================
+//================================================================
+
+// helpers return a boolean
+
+var computers = [
+  { name: 'Apple', ram: 24 },
+  { name: 'Compaq', ram: 4 },
+  { name: 'Acer', ram: 32 }
+];
+
+var allComputersCanRunProgram = true;
+var onlySomeComputersCanRunProgram = false;
+
+for (var i = 0; i < computers.length; i ++ ){
+  var computer = computers[i];
+
+  if (computer.ram < 16) {
+    allComputersCanRunProgram = false;
+  } else {
+    onlySomeComputersCanRunProgram = true;
+  }
+}
+
+
+allComputersCanRunProgram;
+onlySomeComputersCanRunProgram;
+
+// Refactor with every and some
+
+computers.every(function(computer) {
+  return computer.ram > 16;
+});
+
+computers.some(function(computer) {
+  return computer.ram > 16;
+});
+
+//================================================================
+
+var names = [
+  "Alexandria",
+  "Matthew",
+  "Joe"
+];
+
+names.every(function(name) {
+  return name.length > 4;
+});
+
+names.some(function(name) {
+  return name.length > 4;
+});
+
+//================================================================
+
+function Field(value) {
+  this.value = value;
+}
+
+Field.prototype.validate = function() {
+  return this.value.length > 0;
+}
+
+var username = new Field("name");
+var password = new Field("my_password");
+var birthdate = new Field("10/10/2010");
+
+// Without ES6
+username.validate() && password.validate() && birthdate.validate();
+
+var fields = [username, password, birthdate];
+
+// With ES6
+var formIsValid = fields.every((field) => {
+  return field.validate();
+});
+
+if (formIsValid) {
+  // allow user to submit
+} else {
+  // show error message
+}
+
+//================================================================
+
+// Given an array of users, return true if every user has submitted a request form
+
+var users = [
+  { id: 21, hasSubmitted: true },
+  { id: 62, hasSubmitted: false },
+  { id: 4, hasSubmitted: true }
+];
+
+var hasSubmitted = users.every((user) => {
+  return user.hasSubmitted;
+});
+
+//================================================================
+
+
+// Given an array of network objects, assign the boolean true to the variable
+// inProgress if any network request is pending
+
+var requests = [
+  { url: '/photos', status: 'complete' },
+  { url: '/albums', status: 'pending' },
+  { url: '/users', status: 'failed' }
+];
+
+var inProgress = requests.some((request) => {
+  return request.status === 'pending';
+});
+
+//================================================================
+
+//================================================================
+//=====================   Reduce  ================================
+//================================================================
+
+
+var numbers = [10, 20, 30];
+var sum = 0;
+
+for (var i = 0; i < numbers.length; i ++) {
+  sum += numbers[i];
+}
+
+// Refactor with Reduce
+
+// initial value is set to 0, which acts as the first argument, the
+// second argument is the first item in the numbers array (first run through
+// sum = initial value)
+numbers.reduce(function(sum, number) {
+  return sum + number;
+}, 0);
+
+
+//================================================================
+
+var primaryColors = [
+  { color: 'red' },
+  { color: 'yellow' },
+  {color: 'blue'}
+];
+
+// want to get ['red', 'yellow', 'blue']
+
+// previous also often called acc for accumulator
+
+primaryColors.reduce(function(previous, primaryColor) {
+  previous.push(primaryColor.color);
+  return previous;
+}, []);
+
+
+//================================================================
+
+// Balanced parens interview question
+
+function balancedParens(string) {
+  // If counter (called previous) does not equal zero when returned, parens are unbalanced so return false
+
+  // Array helpers like reduce ony work on arrays, so first convert string to array.
+  return !string.split("").reduce(function(previous, char) {
+    // Any time counter goes into the negative, parens are out of order and automatically unbalanced
+    if (previous < 0 ){ return previous; }
+    // increment counter + 1 for open paren and - 1 for close paren
+    if (char === "(") { return ++ previous; }
+    if (char === ")") { return -- previous; }
+    // skip non paren characters without changing value of previous
+    return previous;
+  }, 0);
+}
+
+balancedParens("(((");
+
+//================================================================
+
+
+
+
+
+
+
+
+
+
 
 
 
