@@ -317,13 +317,96 @@ users.find(function(user) {
 
 //================================================================
 
+function Car(model){
+  this.model = model;
+}
+
+var cars = [
+  new Car('Buick'),
+  new Car('Camaro'),
+  new Car('Focus')
+];
+
+cars.find(function(car) {
+  return car.model === 'Focus';
+});
 
 
+//================================================================
+
+var posts = [
+  { id: 1, title: 'New Post'},
+  { id: 2, title: 'Old Post' }
+];
+
+var comment = { postId: 1, content: 'Great Post' }
+
+function postForComment(posts, comment) {
+  return posts.find(function(post) {
+    return post.id === comment.postId;
+  });
+}
+
+postForComment(posts, comment);
 
 
+//================================================================
+
+// Find the user who is an admin
+
+var users = [
+  { id: 1, admin: false },
+  { id: 2, admin: false },
+  { id: 3, admin: true }
+];
+
+var admin;
+
+admin = users.find(function(user) {
+  return user.admin === true;
+});
 
 
+//================================================================
 
+// Find the account with a balance of 12 and assign it to the variable
+// 'account'
+
+var accounts = [
+  { balance: -10 },
+  { balance: 12 },
+  { balance: 0 }
+];
+
+var account;
+
+account = accounts.find((account) => {
+  return account.balance === 12;
+});
+
+//================================================================
+
+// Write a findWhere function that allows a user to find an object with
+// specified criteria
+
+var ladders = [
+  { id:1, height: 20 },
+  { id: 3, height: 25 }
+];
+
+// Solution:
+
+function findWhere(array, criteria) {
+  let searchKey = Object.keys(criteria)[0];
+  return array.find((item) => {
+    return item[searchKey] === criteria[searchKey];
+  });
+}
+
+
+findWhere(ladders, { 'height': 25 });
+
+//================================================================
 
 
 
