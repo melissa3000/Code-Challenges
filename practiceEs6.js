@@ -4,9 +4,9 @@
 //=====================   forEach   ==============================
 //================================================================
 
-var colors = ['red', 'blue', 'green'];
+let colors = ['red', 'blue', 'green'];
 
-for (var i = 0; i < colors.length; i ++) {
+for (let i = 0; i < colors.length; i ++) {
   console.log(colors[i]);
 }
 
@@ -18,10 +18,10 @@ colors.forEach(function(color) {
 //================================================================
 
 // Create an array of numbers
-var numbers = [1, 2, 3, 4, 5];
+let numbers = [1, 2, 3, 4, 5];
 
 // Create a  variable to hold the sum
-var sum = 0;
+let sum = 0;
 
 function adder(number) {
   sum += number;
@@ -38,20 +38,20 @@ sum;
 // Convert the code below to use a forEach:
 
 function handlePosts() {
-    var posts = [
+    let posts = [
       { id: 23, title: 'Daily JS News' },
       { id: 52, title: 'Code Refactor City' },
       { id: 105, title: 'The Brightest Ruby' }
     ];
 
-    for (var i = 0; i < posts.length; i++) {
+    for (let i = 0; i < posts.length; i++) {
       savePost(posts[i]);
     }
 }
 
 // Solution:
 function handlePosts() {
-    var posts = [
+    let posts = [
       { id: 23, title: 'Daily JS News' },
       { id: 52, title: 'Code Refactor City' },
       { id: 105, title: 'The Brightest Ruby' }
@@ -67,12 +67,12 @@ function handlePosts() {
 
 // Calculate the are of each image and store it in a new array called 'areas'
 
-var images = [
+let images = [
   { height: 10, width: 30 },
   { height: 20, width: 90 },
   { height: 54, width: 32 }
 ];
-var areas = [];
+let areas = [];
 
 // Solution:
 
@@ -87,14 +87,14 @@ images.forEach(function(image) {
 //================================================================
 // Often used with arrays of objects
 
-var numbers = [1, 2, 3];
-var doubledNumbers = [];
+let numbers = [1, 2, 3];
+let doubledNumbers = [];
 
-for (var i = 0; i <numbers.length; i ++) {
+for (let i = 0; i <numbers.length; i ++) {
   doubledNumbers.push(numbers[i] * 2);
 }
 
-var doubled = numbers.map(function(number) {
+let doubled = numbers.map(function(number) {
   return number * 2;
 });
 
@@ -105,12 +105,12 @@ doubledNumbers;
 
 //================================================================
 
-var cars = [
+let cars = [
   { model: 'Buick', price: 'CHEAP' },
   { model: 'Camaro', price: 'expensive' }
 ];
 
-var prices = cars.map(function(car) {
+let prices = cars.map(function(car) {
   return car.price;
 });
 
@@ -119,29 +119,29 @@ prices;
 //================================================================
 // Create a new array that contains the height of each property
 
-var images = [
+let images = [
   { height: '34px', width: '39px' },
   { height: '54px', width: '19px' },
   { height: '83px', width: '75px' },
 ];
 
-var heights;
+let heights;
 
 // Solution:
-var heights = images.map(function(image) {
+let heights = images.map(function(image) {
   return image.height;
 });
 
 //================================================================
 // create a new array that contains the distance/time value from each trip
 
-var trips = [
+let trips = [
   { distance: 34, time: 10 },
   { distance: 90, time: 50 },
   { distance: 59, time: 25 }
 ];
 
-var speeds;
+let speeds;
 
 // Solution:
 speeds = trips.map(function(trip) {
@@ -152,11 +152,11 @@ speeds = trips.map(function(trip) {
 // Implement a 'pluck' function that accepts an array and string representing
 // a property name and return an array containing that property from each object
 
-var paints = [{color: 'red'}, {color:'blue'}, {color:'yellow'}];
+let paints = [{color: 'red'}, {color:'blue'}, {color:'yellow'}];
 
 
 function pluck(array, property) {
-    var result = array.map(function(item){
+    let result = array.map(function(item){
       return item[property];
     });
 
@@ -171,16 +171,16 @@ pluck(paints, 'color');
 //================================================================
 
 
-var products = [
+let products = [
   { name: 'cucumber', type: 'vegetable' },
   { name: 'banana', type: 'fruit' },
   { name: 'celery', type: 'vegetable'},
   { name: 'orange', type: 'fruit' },
 ];
 
-var filteredProducts = [];
+let filteredProducts = [];
 
-for (var i =0; i < products.length; i ++) {
+for (let i =0; i < products.length; i ++) {
   if (products[i].type === 'fruit') {
     filteredProducts.push(products[i]);
   }
@@ -196,14 +196,14 @@ products.filter(function(product){
 
 //================================================================
 
-var products = [
+let products = [
   { name: 'cucumber', type: 'vegetable', quantity: 0, price: 1 },
   { name: 'banana', type: 'fruit', quantity: 10, price: 15  },
   { name: 'celery', type: 'vegetable', quantity: 30, price: 9 },
   { name: 'orange', type: 'fruit', quantity: 3, price: 5  },
 ];
 
-var filteredProducts = [];
+let filteredProducts = [];
 
 // Type is vegetable, qty > 0, price < 10
 
@@ -213,9 +213,9 @@ products.filter(function(product){
 
 //================================================================
 
-var post = { id: 4, title: 'New Post' };
+let post = { id: 4, title: 'New Post' };
 
-var comments = [
+let comments = [
   { postId: 4, content: 'awesome post' },
   { postId: 3, content: 'it was ok' },
   { postId: 4, content: 'neat' }
@@ -235,9 +235,9 @@ commentsForPost(post, comments);
 // Filter array of numbers to create a new array that only contains
 // numbers greater than 50
 
-var numbers = [15, 25, 35, 45, 55, 65, 75, 85, 95];
+let numbers = [15, 25, 35, 45, 55, 65, 75, 85, 95];
 
-var filteredNumbers;
+let filteredNumbers;
 
 filteredNumbers = numbers.filter(function(number){
   return number > 50;
@@ -248,7 +248,7 @@ filteredNumbers = numbers.filter(function(number){
 
 // Filter users to only return those with admin level access
 
-var users = [
+let users = [
  { id: 1, admin: true },
  { id: 2, admin: false },
  { id: 3, admin: false },
@@ -256,7 +256,7 @@ var users = [
  { id: 5, admin: true },
 ];
 
-var filteredUsers;
+let filteredUsers;
 
 filteredUsers = users.filter(function(user){
   return user.admin === true;
@@ -270,9 +270,9 @@ filteredUsers = users.filter(function(user){
 // if an item returns true, it should not be included in the array
 
 
-var numbers = [10, 20, 30];
+let numbers = [10, 20, 30];
 
-var lessThanFifteen = reject(numbers, function(number) {
+let lessThanFifteen = reject(numbers, function(number) {
   return number > 15;
 });
 
@@ -293,15 +293,15 @@ lessThanFifteen;
 //================================================================
 
 
-var users = [
+let users = [
   {name: 'Jill'},
   {name: 'Alex'},
   {name: 'Bill'}
 ];
 
-var user;
+let user;
 
-for (var i = 0; i < users.length; i ++) {
+for (let i = 0; i < users.length; i ++) {
  if (users[i].name === 'Alex') {
   user = users[i];
  }
@@ -321,7 +321,7 @@ function Car(model){
   this.model = model;
 }
 
-var cars = [
+let cars = [
   new Car('Buick'),
   new Car('Camaro'),
   new Car('Focus')
@@ -334,12 +334,12 @@ cars.find(function(car) {
 
 //================================================================
 
-var posts = [
+let posts = [
   { id: 1, title: 'New Post'},
   { id: 2, title: 'Old Post' }
 ];
 
-var comment = { postId: 1, content: 'Great Post' }
+let comment = { postId: 1, content: 'Great Post' }
 
 function postForComment(posts, comment) {
   return posts.find(function(post) {
@@ -354,13 +354,13 @@ postForComment(posts, comment);
 
 // Find the user who is an admin
 
-var users = [
+let users = [
   { id: 1, admin: false },
   { id: 2, admin: false },
   { id: 3, admin: true }
 ];
 
-var admin;
+let admin;
 
 admin = users.find(function(user) {
   return user.admin === true;
@@ -372,13 +372,13 @@ admin = users.find(function(user) {
 // Find the account with a balance of 12 and assign it to the variable
 // 'account'
 
-var accounts = [
+let accounts = [
   { balance: -10 },
   { balance: 12 },
   { balance: 0 }
 ];
 
-var account;
+let account;
 
 account = accounts.find((account) => {
   return account.balance === 12;
@@ -389,7 +389,7 @@ account = accounts.find((account) => {
 // Write a findWhere function that allows a user to find an object with
 // specified criteria
 
-var ladders = [
+let ladders = [
   { id:1, height: 20 },
   { id: 3, height: 25 }
 ];
@@ -413,17 +413,17 @@ findWhere(ladders, { 'height': 25 });
 
 // helpers return a boolean
 
-var computers = [
+let computers = [
   { name: 'Apple', ram: 24 },
   { name: 'Compaq', ram: 4 },
   { name: 'Acer', ram: 32 }
 ];
 
-var allComputersCanRunProgram = true;
-var onlySomeComputersCanRunProgram = false;
+let allComputersCanRunProgram = true;
+let onlySomeComputersCanRunProgram = false;
 
-for (var i = 0; i < computers.length; i ++ ){
-  var computer = computers[i];
+for (let i = 0; i < computers.length; i ++ ){
+  let computer = computers[i];
 
   if (computer.ram < 16) {
     allComputersCanRunProgram = false;
@@ -448,7 +448,7 @@ computers.some(function(computer) {
 
 //================================================================
 
-var names = [
+let names = [
   "Alexandria",
   "Matthew",
   "Joe"
@@ -472,17 +472,17 @@ Field.prototype.validate = function() {
   return this.value.length > 0;
 }
 
-var username = new Field("name");
-var password = new Field("my_password");
-var birthdate = new Field("10/10/2010");
+let username = new Field("name");
+let password = new Field("my_password");
+let birthdate = new Field("10/10/2010");
 
 // Without ES6
 username.validate() && password.validate() && birthdate.validate();
 
-var fields = [username, password, birthdate];
+let fields = [username, password, birthdate];
 
 // With ES6
-var formIsValid = fields.every((field) => {
+let formIsValid = fields.every((field) => {
   return field.validate();
 });
 
@@ -496,13 +496,13 @@ if (formIsValid) {
 
 // Given an array of users, return true if every user has submitted a request form
 
-var users = [
+let users = [
   { id: 21, hasSubmitted: true },
   { id: 62, hasSubmitted: false },
   { id: 4, hasSubmitted: true }
 ];
 
-var hasSubmitted = users.every((user) => {
+let hasSubmitted = users.every((user) => {
   return user.hasSubmitted;
 });
 
@@ -512,13 +512,13 @@ var hasSubmitted = users.every((user) => {
 // Given an array of network objects, assign the boolean true to the variable
 // inProgress if any network request is pending
 
-var requests = [
+let requests = [
   { url: '/photos', status: 'complete' },
   { url: '/albums', status: 'pending' },
   { url: '/users', status: 'failed' }
 ];
 
-var inProgress = requests.some((request) => {
+let inProgress = requests.some((request) => {
   return request.status === 'pending';
 });
 
@@ -529,10 +529,10 @@ var inProgress = requests.some((request) => {
 //================================================================
 
 
-var numbers = [10, 20, 30];
-var sum = 0;
+let numbers = [10, 20, 30];
+let sum = 0;
 
-for (var i = 0; i < numbers.length; i ++) {
+for (let i = 0; i < numbers.length; i ++) {
   sum += numbers[i];
 }
 
@@ -548,7 +548,7 @@ numbers.reduce(function(sum, number) {
 
 //================================================================
 
-var primaryColors = [
+let primaryColors = [
   { color: 'red' },
   { color: 'yellow' },
   {color: 'blue'}
@@ -589,9 +589,9 @@ balancedParens("(((");
 
 // Use reduce to find the sum of the distances traveled
 
-var trips = [{ distance: 34 }, { distance: 12 } , { distance: 1 }];
+let trips = [{ distance: 34 }, { distance: 12 } , { distance: 1 }];
 
-var totalDistance = trips.reduce((sum, trip) => {
+let totalDistance = trips.reduce((sum, trip) => {
   return sum + trip.distance;
 }, 0);
 
@@ -602,7 +602,7 @@ var totalDistance = trips.reduce((sum, trip) => {
 // Use reduce to create an object that tallies the number of sitting and
 // standing desks. The object returned should have the form '{sitting: 3, standing: 2}'.
 
-var desks = [
+let desks = [
   { type: 'sitting' },
   { type: 'standing' },
   { type: 'sitting' },
@@ -610,7 +610,7 @@ var desks = [
   { type: 'standing' }
 ];
 
-var deskTypes = desks.reduce(function(previous, desk) {
+let deskTypes = desks.reduce(function(previous, desk) {
     if (desk.type === 'standing') { previous.standing ++; }
     if (desk.type === 'sitting') { previous.sitting ++ ; }
     return previous
@@ -621,7 +621,7 @@ var deskTypes = desks.reduce(function(previous, desk) {
 // Write a function called 'unique' that will remove all duplicate values
 // from an array.
 
-var numbers = [1, 1, 2, 3, 4, 4]; // return [1, 2, 3, 4]
+let numbers = [1, 1, 2, 3, 4, 4]; // return [1, 2, 3, 4]
 function unique(array) {
   return array.reduce(function(previous, number) {
     if (!previous.includes(number))
