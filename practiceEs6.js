@@ -633,11 +633,30 @@ function unique(array) {
 unique(numbers);
 
 //================================================================
+//================================================================
+//================================================================
+
+// Template literals, template strings
+
+function getMessage() {
+  const year = new Date().getFullYear();
+
+  return "The year is " + year;
+}
+
+getMessage();
+
+// refactor using ES6
+function getMessage() {
+  const year = new Date().getFullYear();
+
+  return `The year is ${year}`;
+}
+
+getMessage();
 
 
-
-
-
+//================================================================
 
 
 
