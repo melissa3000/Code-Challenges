@@ -740,15 +740,42 @@ numbers.map(number => 2 * number);
 
 //================================================================
 
+// Refactor using arrow functions:
+// (Gives cannot read property 'teamName' of undefined, value of 'this' becomes
+// lost inside map function without bind helper in ES5)
+
+const team = {
+  members: ['Jane', 'Bill'],
+  teamName: 'Squad',
+  teamSummary: function() {
+    return this.members.map(function(member) {
+      return `${member} is on team ${this.teamName}`;
+    });
+  }
+};
+
+team.teamSummary();
 
 
+// Solution:
+
+const team = {
+  members: ['Jane', 'Bill'],
+  teamName: 'Squad',
+  teamSummary: function() {
+    return this.members.map((member) => {
+      return `${member} is on team ${this.teamName}`;
+    });
+  }
+};
+
+team.teamSummary();
+
+// fat arrows use 'lexical this' so it doesn't lose 'this' as it's passed
+// to the map function
 
 
-
-
-
-
-
+//================================================================
 
 
 
