@@ -658,8 +658,87 @@ getMessage();
 
 //================================================================
 
+// refactor using template strings:
+
+function doubleMessage(number) {
+  return "Your number doubled is " + (2 * number);
+}
+
+// Solution:
+
+function doubleMessage(number) {
+  return `Your number doubled is ${2 * number}`;
+}
+
+//================================================================
+
+// Refactor using template strings:
+
+function fullName(firstName, lastName) {
+  return firstName + lastName;
+}
+
+// Solution:
+
+function fullName(firstName, lastName) {
+  return `${firstName} ${lastName}`;
+}
 
 
+//================================================================
+                  //Arrow Functions
+//================================================================
+
+// Refactor using arrow function:
+
+const add = function(a, b) {
+  return a + b;
+}
+
+// Solution:
+
+const add = (a, b) => {
+  return a + b;
+}
+
+// Can further refactor if there's only one expression in the function (optional):
+
+const add = (a, b) => a + b;
+
+
+//================================================================
+
+// Refactor using arrow function:
+const double = function(number) {
+  return 2 * number;
+}
+
+// If you have a single argument only, you can also remove the parens:
+const double = number => 2 * number;
+
+// It's also ok to leave the parens:
+const double = (number) => 2 * number;
+
+//================================================================
+
+// Refactor using arrow function:
+
+const numbers = [1, 2, 3];
+
+numbers.map(function(number) {
+  return 2 * number;
+});
+
+// Solution:
+
+numbers.map((number) => {
+  return 2 * number;
+});
+
+// Also:
+numbers.map(number => 2 * number);
+
+//================================================================
 
 
 
