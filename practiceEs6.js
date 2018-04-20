@@ -887,6 +887,82 @@ saveFile(url, data);
 
 //================================================================
 
+// Refactor to ES6:
+
+const red = '#ff0000';
+const blue = '#0000ff';
+
+const COLORS = { red: red, blue: blue };
+
+// Solution:
+
+const COLORS = { red, blue };
+
+
+//================================================================
+
+// Refactor to ES6:
+const color = 'red';
+
+const Car = {
+  color: color,
+  drive: function() {
+    return 'Vroom!';
+  },
+  getColor: function() {
+    return this.color;
+  }
+};
+
+// Solution:
+
+const color = 'red';
+
+const Car = {
+  color,
+  drive() {
+    return 'Vroom!';
+  },
+  getColor() {
+    return this.color;
+  }
+};
+
+
+//================================================================
+// Specifying Default Function Arguments
+
+function makeAjaxRequest(url, method) {
+  if (!method) {
+    method = 'GET';
+  }
+  // logic to make the request
+}
+
+makeAjaxRequest('google.com');
+makeAjaxRequest('google.com', 'GET');
+
+
+
+// Instead use:
+function makeAjaxRequest(url, method = 'GET') {
+
+  // logic to make the request
+}
+
+makeAjaxRequest('google.com'); // GET
+makeAjaxRequest('google.com', 'GET'); // GET
+makeAjaxRequest('google.com', null); // null
+makeAjaxRequest('google.com', undefined); // GET
+makeAjaxRequest('google.com', 'POST'); // POST
+
+//================================================================
+
+
+
+
+
+
 
 
 
