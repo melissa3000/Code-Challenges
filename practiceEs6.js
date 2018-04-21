@@ -1061,7 +1061,115 @@ addNumbers(1, 2, 3, 4, 5, 6, 7);
 // Use rest operator to capture unknonw number of arguements and put them
 // into an array
 
+
 //================================================================
+// Spread operator
+//================================================================
+
+// Refactor using spread:
+const defaultColors = ['red', 'green'];
+const userFavoriteColors = ['orange', 'yellow'];
+
+defaultColors.concat(userFavoriteColors);
+
+// Solution
+
+const defaultColors = ['red', 'green'];
+const userFavoriteColors = ['orange', 'yellow'];
+
+[...defaultColors, ...userFavoriteColors]; // ['red', 'green', 'orange', 'yellow']
+
+[...defaultColors, userFavoriteColors];  // ['red', 'green', ['orange', 'yellow']]
+
+['blue', ...defaultColors, ...userFavoriteColors]; // ['blue', red', 'green', 'orange', 'yellow']
+
+// Spread operator creates a new array, the spread operator takes all of
+// the elements inside the variable, pulls them out and flattens them into
+// the new array
+
+//================================================================
+// Combining spread and rest
+
+// If milk not on the shopping list already, add it
+function validateShoppingList(...items){
+  if (items.indexOf('milk') < 0) {
+    return ['milk', ...items];
+  }
+    return items;
+}
+
+validateShoppingList('oranges', 'bread', 'eggs');
+
+//================================================================
+
+const MathLibrary = {
+  calculateProduct(a, b) {
+    return a * b;
+  }
+};
+
+// Rename without breaking exisiting code that already uses calculateProduct
+const MathLibrary = {
+  calculateProduct(...rest) {
+    console.log('Please use the multiply method instead');
+    return this.multiply(...rest);
+  },
+  multiply(a, b) {
+    return a * b;
+  }
+};
+
+//================================================================
+
+// Refactor using rest:
+function product(a, b, c, d, e) {
+  var numbers = [a,b,c,d,e];
+
+  return numbers.reduce(function(acc, number) {
+    return acc * number;
+  }, 1)
+}
+
+// Solution:
+function product(...numbers) {
+
+  return numbers.reduce((acc, number) => {
+    return acc * number;
+  }, 1);
+}
+
+
+//================================================================
+// Refactor using spread:
+
+function join(array1, array2) {
+  return array1.concat(array2);
+}
+
+// Solution:
+function join(array1, array2) {
+  return [ ...array1, ...array2 ];
+}
+
+
+//================================================================
+
+// Refactor using only the rest operator:
+function unshift(array, a, b, c, d, e) {
+  return [a, b, c, d, e].concat(array);
+}
+
+// Solution:
+
+function unshift(array, ...arrays) {
+  return [ ...arrays, ...array ];
+}
+
+
+//================================================================
+
+
+
 
 
 
