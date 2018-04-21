@@ -958,6 +958,123 @@ makeAjaxRequest('google.com', 'POST'); // POST
 
 //================================================================
 
+// Refactor into ES6:
+function User(id) {
+  this.id = id;
+}
+
+function generateID() {
+  return Math.random() * 9999999;
+}
+
+function createAdminUser(user) {
+  user.admin = true;
+  return user;
+}
+
+createAdminUser(new User(generateID()));
+
+// Solution:
+
+function User(id) {
+  this.id = id;
+}
+
+function generateID() {
+  return Math.random() * 9999999;
+}
+
+function createAdminUser(user = new User(generateID())) {
+  user.admin = true;
+  return user;
+}
+
+createAdminUser();
+
+
+
+//================================================================
+// Refactor using default function arguments:
+function sum(a, b) {
+  if (a === undefined) {
+    a = 0;
+  }
+
+  if (b === undefined) {
+    b = 0;
+  }
+
+  return a + b;
+}
+
+// Solution:
+
+function sum(a = 0, b = 0) {
+
+  return a + b;
+}
+
+//================================================================
+// Refactor using default function arguments:
+
+function addOffset(style) {
+  if (!style) {
+    style = {};
+  }
+
+  style.offset = '10px';
+
+  return style;
+}
+
+// Solution:
+function addOffset(style = {}) {
+
+  style.offset = '10px';
+
+  return style;
+}
+
+
+//================================================================
+// Using Rest and Spread Operators
+//================================================================
+
+function addNumbers(numbers) {
+  return numbers.reduce(function(sum, number){
+    return sum + number
+  }, 0);
+}
+
+addNumbers([1, 2, 3, 4, 5]);
+
+// Refactor to be able to pass in as many arguements as you'd like:
+
+function addNumbers(...numbers) {
+  return numbers.reduce((sum, number) => {
+    return sum + number
+  }, 0);
+}
+
+addNumbers(1, 2, 3, 4, 5, 6, 7);
+
+// Use rest operator to capture unknonw number of arguements and put them
+// into an array
+
+//================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
