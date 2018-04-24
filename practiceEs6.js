@@ -1335,12 +1335,46 @@ points.map(([ x, y ]) => {
 });
 
 
+//================================================================
 
+// Refactor:
+const profile = {
+  title: 'Engineer',
+  department: 'Engineering'
+};
 
+function isEngineer(profile) {
+  var title = profile.title;
+  var department = profile.department;
+  return title === 'Engineer' && department === 'Engineering';
+}
 
+// Solution:
 
+const profile = {
+  title: 'Engineer',
+  department: 'Engineering'
+};
 
+function isEngineer({ title, department }) {
+  return title === 'Engineer' && department === 'Engineering';
+}
 
+//================================================================
+ // Convert into an array of objects:
+ const classes = [
+  [ 'Chemistry', '9AM', 'Mr. Darnick' ],
+  [ 'Physics', '10:15AM', 'Mrs. Lithun'],
+  [ 'Math', '11:30AM', 'Mrs. Vitalis' ]
+];
+
+const classesAsObject;
+
+// Solution:
+
+const classesAsObject = classes.map(([ subject, time, teacher ]) => {
+  return { subject, time, teacher };
+});
 
 
 
