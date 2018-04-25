@@ -1376,12 +1376,113 @@ const classesAsObject = classes.map(([ subject, time, teacher ]) => {
   return { subject, time, teacher };
 });
 
+//================================================================
+// Classes
+//================================================================
+
+// ES5:
+
+function Car(options) {
+  this.title = options.title;
+}
+
+Car.prototype.drive = function(){
+    return 'vroom';
+}
+
+const car = new Car({ title: 'Focus' });
+
+car;
+car.drive();
 
 
+// ES6:
 
+class Car {
+  // constructor(options) {
+  //   this.title = options.title;
+  // }
+  constructor({ title }) {
+    this.title = title;
+  }
 
+  drive() {
+    return 'vroom';
+  }
+}
 
+class Toyota extends Car {
+  constructor(options) {
+    super(options); // essentially calls Car.constructor()
+    this.color = options.color;
+  }
 
+  honk() {
+    return 'beep';
+  }
+}
+
+const toyota = new Toyota({ color: 'red', title: 'daily driver' });
+toyota.honk();
+toyota;
+toyota.drive();
+
+//================================================================
+
+// Create a class called Monster with a health of 100, constructor will
+// be called with options object that has a name property
+
+// Solution:
+
+class Monster {
+  constructor(options){
+    this.name = options.name;
+    this.health = 100;
+  }
+
+}
+
+const bigBird = new Monster({ name: 'Big Bird' });
+bigBird;
+bigBird.health;
+
+//================================================================
+
+// Create a subclass of Monster calle Snake. Snake should have a 'bite'
+// method with an argument of another snake. Snake should have 10 less health
+// once bitten.
+
+class Monster {
+  constructor(options) {
+    this.health = 100;
+    this.name = options.name;
+  }
+}
+
+class Snake extends Monster {
+  constructor(options){
+    super(options);
+  }
+
+  bite(snake) {
+   snake.health -= 10;
+   return `I bite you, ${snake.name}!`;
+
+  }
+}
+
+const bigBird = new Monster({ name: 'Big Bird' });
+bigBird;
+bigBird.health;
+
+const bob = new Snake({ name: 'Bob' });
+bob;
+const john = new Snake({name: 'John' });
+bob.bite(john);
+
+//================================================================
+// For .. of Loops
+//================================================================
 
 
 
