@@ -1662,8 +1662,45 @@ names; // ['Jill', 'Alex', 'Dave', 'Amanda', 'Bill']
 //================================================================
 
 // Refactor code from above:
+// Use symbol iterator
+// Symbol iterator is a tool that teaches objects how to respond to the
+// for ... of loop.
+
+const testingTeam = {
+  lead: 'Amanda',
+  tester: 'Bill',
+  // Symbol.iterator is a normal key, not an array
+  [Symbol.iterator]: function* () {
+    yield this.lead;
+    yield this.tester;
+  }
+};
+
+const engineeringTeam = {
+  testingTeam,
+  size: 3,
+  department: 'Engineering',
+  lead: 'Jill',
+  manager: 'Alex',
+  engineering: 'Dave',
+  [Symbol.iterator]: function* () {
+    yield this.lead;
+    yield this.manager;
+    yield this.engineering;
+    // yield * tells the generator to go find the following object and iterate over it as well
+    yield* this.testingTeam;
+  }
+};
+
+const names = [];
+for (let name of engineeringTeam){
+  names.push(name);
+}
+
+names;
 
 
+//================================================================
 
 
 
