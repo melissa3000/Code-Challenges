@@ -1788,10 +1788,26 @@ promise
 // Using the Fetch handler
 //================================================================
 
+url = 'https://fake_url';
+
+// fetch returns a promise
+fetch(url)
+  // .then(data => console.log(data)) // returns difficult to read response
+  .then(response => response.json()) // returns readable json data from response
+  .then(data => console.log(data));
 
 
+//================================================================
 
+url = 'https://fake_url';
 
+// Fetch doesn't return a failed status even if the request doesn't work.
+// If it gets an error status back (ex 404), it acts like it succeeded.
+// Only enters catch if network request fails to be issued at all
+
+fetch(url)
+  .then(response => console.log(response))
+  .catch(error => console.log('BAD', error)); // even with status 404, it still doesn't enter the catch statement
 
 
 
