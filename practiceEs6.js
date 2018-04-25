@@ -1702,7 +1702,41 @@ names;
 
 //================================================================
 
+// Create a for...of loop to iterate over a tree
 
+// Create tree
+class Comment {
+  constructor(content, children) {
+    this.content = content;
+    this.children = children;
+  }
+
+  // Create generator with symbol iterator key inside a class
+  *[Symbol.iterator]() {
+    yield this.content;
+    // array helpers will not work inside generators
+    for (let child of this.children) {
+      yield* child;
+    }
+  }
+}
+
+// child nodes with values, but no children of their own
+const children = [
+  new Comment('good comment', []),
+  new Comment('bad comment', []),
+  new Comment('meh', [])
+];
+
+// root node
+const tree = new Comment('Great post', children);
+// tree;
+
+const values = [];
+for (let value of tree) {
+  values.push(value);
+}
+values;
 
 
 
