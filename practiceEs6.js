@@ -1502,6 +1502,177 @@ for (let number of numbers) {
 
 
 //================================================================
+// Generators
+//================================================================
+
+// A generator is a function that can be entered and exited multiple times.
+// Normal functions are called, run, returns and are done. Generators can run,
+// return something and then go back in and re-start.
+
+// * can be attached to end of function word or at beginning of numbers word
+// function *numbers() { is also ok
+function* numbers() {
+  yield;
+}
+
+const gen = numbers();
+gen.next(); // done: false
+gen.next(); // done: true
+
+//================================================================
+
+
+function* shopping() {
+  // stuff on the sidewalk
+
+  // walking down the sidewalk
+
+  // go into the store with cash
+  const stuffFromStore = yield 'cash';
+
+  // walking back home
+  return stuffFromStore
+}
+
+// stuff in the store
+const gen = shopping();
+gen.next(); // leaving our house
+// walked into the store
+// walking up and down aisles...
+// purchase food
+
+gen.next('groceries'); // leaving the store with groceries (re-enter generator at yield statement)
+
+// calling shopping(); doesn't make anything happen, you need to call gen.next()
+// to start generating code
+
+
+//================================================================
+
+// Adding multiple yields in a generator:
+function* shopping() {
+  // stuff on the sidewalk
+
+  // walking down the sidewalk
+
+  // go into the store with cash
+  const stuffFromStore = yield 'cash';
+
+  // walk to laundry place with laundry
+  const cleanClothes = yield 'laundry';
+
+  // walking back home
+  return [stuffFromStore, cleanClothes];
+}
+
+// stuff in the store
+const gen = shopping();
+gen.next(); // leaving our house
+// walked into the store
+// walking up and down aisles...
+// purchase food
+
+gen.next('groceries'); // leaving the store with groceries (re-enter generator at yield statement)
+
+// calling shopping(); doesn't make anything happen, you need to call gen.next()
+// to start generating code
+
+gen.next('clean clothes');
+
+//================================================================
+
+function* colors() {
+  yield 'red';
+  yield 'blue';
+  yield 'green';
+}
+
+const myColors = [];
+for (let color of colors()) {
+  myColors.push(color);
+}
+
+myColors;  // ['red', 'blue', 'green']
+
+// for ... of loops run generators with each iteration
+//================================================================
+
+// generators allow us to iterate over multiple data structures
+
+const engineeringTeam = {
+  size: 3,
+  department: 'Engineering',
+  lead: 'Jill',
+  manager: 'Alex',
+  engineering: 'Dave'
+};
+
+// Iterate through people on the team only
+
+function* TeamIterator(team){
+  yield team.lead;
+  yield team.manager;
+  yield team.engineering;
+}
+
+const names = [];
+for (let name of TeamIterator(engineeringTeam)){
+  names.push(name);
+}
+
+names; // ['Jill', 'Alex', 'Dave']
+
+//================================================================
+
+const testingTeam = {
+  lead: 'Amanda',
+  tester: 'Bill'
+};
+
+const engineeringTeam = {
+  testingTeam,
+  size: 3,
+  department: 'Engineering',
+  lead: 'Jill',
+  manager: 'Alex',
+  engineering: 'Dave'
+};
+
+
+function* TeamIterator(team){
+  yield team.lead;
+  yield team.manager;
+  yield team.engineering;
+  const testingTeamGenerator = TestingTeamIterator(team.testingTeam);
+  yield* testingTeamGenerator;
+}
+
+function* TestingTeamIterator(team) {
+  yield team.lead;
+  yield team.tester;
+}
+
+const names = [];
+for (let name of TeamIterator(engineeringTeam)){
+  names.push(name);
+}
+
+names; // ['Jill', 'Alex', 'Dave', 'Amanda', 'Bill']
+
+//================================================================
+
+// Refactor code from above:
+
+
+
+
+
+
+
+
+
+
+
 
 
 
