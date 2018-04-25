@@ -1738,6 +1738,56 @@ for (let value of tree) {
 }
 values;
 
+//================================================================
+// Promises
+//================================================================
+
+
+                        // Promise
+
+
+  // Everything worked well         // Something bad happened
+
+
+  // Status: resolved               // Status: rejected
+
+  // Callback: then                 // Callback: catch
+
+
+//================================================================
+
+
+let promise = new Promise((resolve, reject) => {
+  // resolve(); // promise is resolved, executes both then statements
+  reject(); // only the catch statement will execute
+});
+
+promise
+  .then(() => console.log('finally finished!'))
+  .then(() => console.log('I also ran'))
+  .catch(() => console.log('uh oh'));
+
+
+//================================================================
+
+
+let promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve();
+  }, 3000);
+
+});
+
+promise
+  .then(() => console.log('finally finished!'))
+  .then(() => console.log('I also ran'))
+  .catch(() => console.log('uh oh'));
+
+
+//================================================================
+// Using the Fetch handler
+//================================================================
+
 
 
 
